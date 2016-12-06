@@ -33,4 +33,5 @@ class TowerDefence : public SimpleScene
 		int a;
 
 		bool c;
+		bool D;
 };
