@@ -16,6 +16,7 @@ class TowerDefence : public SimpleScene
 		void FrameEnd() override;
 
 		void RenderMesh(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix) override;
+		void RenderMeshMiniMap(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix);
 
 		void OnInputUpdate(float deltaTime, int mods) override;
 		void OnKeyPress(int key, int mods) override;
@@ -28,9 +29,11 @@ class TowerDefence : public SimpleScene
 
 	protected:
 		Laborator::Camera *camera;
+		Laborator::Camera *miniMapCamera;
 		glm::mat4 projectionMatrix;
-		bool renderCameraTarget;
-		int a;
+		glm::mat4 projectionMiniMapMatrix;
 
-		bool c;
+		bool renderCameraTarget;
+
+		glm::ivec2 resolution;
 };

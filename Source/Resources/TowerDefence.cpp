@@ -21,21 +21,15 @@ void TowerDefence::Init()
 	renderCameraTarget = false;
 
 	camera = new Laborator::Camera();
-	camera->Set(glm::vec3(0, 2, 3.5f), glm::vec3(0, 1, 0), glm::vec3(0, 1, 0));
+	camera->Set(glm::vec3(0, 0.3f, 5.0f), glm::vec3(0, 1, 0), glm::vec3(0, 1, 0));
+	resolution = window->GetResolution();
 
-	{
-		Mesh* mesh = new Mesh("box");
-		mesh->LoadMesh(RESOURCE_PATH::MODELS + "Primitives", "box.obj");
-		meshes[mesh->GetMeshID()] = mesh;
-	}
+	miniMapCamera = new Laborator::Camera();
+	miniMapCamera->Set(glm::vec3(0, 15, 0), glm::vec3(0, 1, 0), glm::vec3(1, 0, 0));
 
-	{
-		Mesh* mesh = new Mesh("sphere");
-		mesh->LoadMesh(RESOURCE_PATH::MODELS + "Primitives", "sphere.obj");
-		meshes[mesh->GetMeshID()] = mesh;
-	}
 
 	projectionMatrix = glm::perspective(RADIANS(60), window->props.aspectRatio, 0.01f, 200.0f);
+	projectionMiniMapMatrix = glm::perspective(RADIANS(60), window->props.aspectRatio, 0.01f, 200.0f);
 }
 
 void TowerDefence::FrameStart()
@@ -86,7 +80,10 @@ void TowerDefence::Update(float deltaTimeSeconds)
 
 void TowerDefence::FrameEnd()
 {
+	glViewport(0, 0, resolution.x, resolution.y);
 	DrawCoordinatSystem(camera->GetViewMatrix(), projectionMatrix);
+	glViewport(0, 0, resolution.x / 5, resolution.y / 5);
+	DrawCoordinatSystem(miniMapCamera->GetViewMatrix(), projectionMiniMapMatrix);
 }
 
 void TowerDefence::RenderMesh(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix)
@@ -103,38 +100,49 @@ void TowerDefence::RenderMesh(Mesh * mesh, Shader * shader, const glm::mat4 & mo
 	mesh->Render();
 }
 
+void TowerDefence::RenderMeshMiniMap(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix)
+{
+	if (!mesh || !shader)
+		return;
+
+	// render an object using the specified shader and the specified position
+	shader->Use();
+	glUniformMatrix4fv(shader->loc_view_matrix, 1, false, glm::value_ptr(miniMapCamera->GetViewMatrix()));
+	glUniformMatrix4fv(shader->loc_projection_matrix, 1, false, glm::value_ptr(projectionMatrix));
+	glUniformMatrix4fv(shader->loc_model_matrix, 1, GL_FALSE, glm::value_ptr(modelMatrix));
+
+	mesh->Render();
+}
+
 // Documentation for the input functions can be found in: "/Source/Core/Window/InputController.h" or
 // https://github.com/UPB-Graphics/Framework-EGC/blob/master/Source/Core/Window/InputController.h
 
 void TowerDefence::OnInputUpdate(float deltaTime, int mods)
 {
 	// move the camera only if MOUSE_RIGHT button is pressed
+	// de verificat vieti la player
 	if (window->MouseHold(GLFW_MOUSE_BUTTON_RIGHT))
 	{
 		float cameraSpeed = 2.0f;
 
 		if (window->KeyHold(GLFW_KEY_W)) {
 			// TODO : translate the camera forward
+			camera->TranslateForward(cameraSpeed*deltaTime);
 		}
 
 		if (window->KeyHold(GLFW_KEY_A)) {
 			// TODO : translate the camera to the left
+			camera->TranslateRight(-cameraSpeed*deltaTime);
 		}
 
 		if (window->KeyHold(GLFW_KEY_S)) {
 			// TODO : translate the camera backwards
+			camera->TranslateForward(-cameraSpeed*deltaTime);
 		}
 
 		if (window->KeyHold(GLFW_KEY_D)) {
 			// TODO : translate the camera to the right
-		}
-
-		if (window->KeyHold(GLFW_KEY_Q)) {
-			// TODO : translate the camera down
-		}
-
-		if (window->KeyHold(GLFW_KEY_E)) {
-			// TODO : translate the camera up
+			camera->TranslateRight(cameraSpeed*deltaTime);
 		}
 	}
 }
@@ -155,25 +163,19 @@ void TowerDefence::OnKeyRelease(int key, int mods)
 
 void TowerDefence::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 {
-	// add mouse move event
-
+	// de verificat vietile la player
 	if (window->MouseHold(GLFW_MOUSE_BUTTON_RIGHT))
 	{
 		float sensivityOX = 0.001f;
 		float sensivityOY = 0.001f;
 
 		if (window->GetSpecialKeyState() == 0) {
-			renderCameraTarget = false;
-			// TODO : rotate the camera in First-person mode around OX and OY using deltaX and deltaY
-			// use the sensitivity variables for setting up the rotation speed
+			camera->RotateThirdPerson_OX(-sensivityOX * deltaY);
+			camera->RotateThirdPerson_OY(-sensivityOY * deltaX);
 		}
 
-		if (window->GetSpecialKeyState() && GLFW_MOD_CONTROL) {
-			renderCameraTarget = true;
-			// TODO : rotate the camera in Third-person mode around OX and OY using deltaX and deltaY
-			// use the sensitivity variables for setting up the rotation speed
-		}
-
+		// de setat unghi la player
+		//player->setAngle(-deltaX * 0.001f + player->getAngle());
 	}
 }
 
