@@ -1,15 +1,15 @@
 #pragma once
-#include <Resources\GameObjects\Amo\Ammunition\Bullet.h>
+#include <Resources\GameObjects\Ammo\Ammunition\Bullet.h>
 #include <vector>
+
 using namespace std;
 
-class Pistol
+class Gun
 {
 public:
-	Pistol();
-	~Pistol();
+	Gun();
+	~Gun();
 
 private:
 	vector<Bullet*> bulletList;
-	
 };

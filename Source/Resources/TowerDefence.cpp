@@ -3,21 +3,19 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <Resources\DrawObjects\DrawObjects.h>
 
 #include <Core/Engine.h>
 
 using namespace std;
 
-TowerDefence::TowerDefence()
-{
+TowerDefence::TowerDefence() {
 }
 
-TowerDefence::~TowerDefence()
-{
+TowerDefence::~TowerDefence() {
 }
 
-void TowerDefence::Init()
-{
+void TowerDefence::Init() {
 	renderCameraTarget = false;
 
 	camera = new Laborator::Camera();
@@ -32,8 +30,7 @@ void TowerDefence::Init()
 	projectionMiniMapMatrix = glm::perspective(RADIANS(60), window->props.aspectRatio, 0.01f, 200.0f);
 }
 
-void TowerDefence::FrameStart()
-{
+void TowerDefence::FrameStart() {
 	// clears the color buffer (using the previously set color) and depth buffer
 	glClearColor(0, 0, 0, 1);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -43,8 +40,7 @@ void TowerDefence::FrameStart()
 	glViewport(0, 0, resolution.x, resolution.y);
 }
 
-void TowerDefence::Update(float deltaTimeSeconds)
-{
+void TowerDefence::Update(float deltaTimeSeconds) {
 	{
 		glm::mat4 modelMatrix = glm::mat4(1);
 		modelMatrix = glm::translate(modelMatrix, glm::vec3(0, 1, 0));
@@ -55,39 +51,18 @@ void TowerDefence::Update(float deltaTimeSeconds)
 		RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
 	}
 
-	{
-		glm::mat4 modelMatrix = glm::mat4(1);
-		modelMatrix = glm::translate(modelMatrix, glm::vec3(2, 0.5f, 0));
-		modelMatrix = glm::rotate(modelMatrix, RADIANS(60.0f), glm::vec3(1, 0, 0));
-		RenderMesh(meshes["box"], shaders["VertexNormal"], modelMatrix);
-	}
-
-	{
-		glm::mat4 modelMatrix = glm::mat4(1);
-		modelMatrix = glm::translate(modelMatrix, glm::vec3(-2, 0.5f, 0));
-		RenderMesh(meshes["box"], shaders["Simple"], modelMatrix);
-	}
-
-	// Render the camera target. Useful for understanding where is the rotation point in Third-person camera movement
-	if (renderCameraTarget)
-	{
-		glm::mat4 modelMatrix = glm::mat4(1);
-		modelMatrix = glm::translate(modelMatrix, camera->GetTargetPosition());
-		modelMatrix = glm::scale(modelMatrix, glm::vec3(0.1f));
-		RenderMesh(meshes["sphere"], shaders["VertexNormal"], modelMatrix);
-	}
+	DrawObjects *drawObjects = new DrawObjects();
+	drawObjects->drawObjects();
 }
 
-void TowerDefence::FrameEnd()
-{
+void TowerDefence::FrameEnd() {
 	glViewport(0, 0, resolution.x, resolution.y);
 	DrawCoordinatSystem(camera->GetViewMatrix(), projectionMatrix);
 	glViewport(0, 0, resolution.x / 5, resolution.y / 5);
 	DrawCoordinatSystem(miniMapCamera->GetViewMatrix(), projectionMiniMapMatrix);
 }
 
-void TowerDefence::RenderMesh(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix)
-{
+void TowerDefence::RenderMesh(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix) {
 	if (!mesh || !shader || !shader->program)
 		return;
 
@@ -100,8 +75,7 @@ void TowerDefence::RenderMesh(Mesh * mesh, Shader * shader, const glm::mat4 & mo
 	mesh->Render();
 }
 
-void TowerDefence::RenderMeshMiniMap(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix)
-{
+void TowerDefence::RenderMeshMiniMap(Mesh * mesh, Shader * shader, const glm::mat4 & modelMatrix) {
 	if (!mesh || !shader)
 		return;
 
@@ -117,8 +91,7 @@ void TowerDefence::RenderMeshMiniMap(Mesh * mesh, Shader * shader, const glm::ma
 // Documentation for the input functions can be found in: "/Source/Core/Window/InputController.h" or
 // https://github.com/UPB-Graphics/Framework-EGC/blob/master/Source/Core/Window/InputController.h
 
-void TowerDefence::OnInputUpdate(float deltaTime, int mods)
-{
+void TowerDefence::OnInputUpdate(float deltaTime, int mods) {
 	// move the camera only if MOUSE_RIGHT button is pressed
 	// de verificat vieti la player
 	if (window->MouseHold(GLFW_MOUSE_BUTTON_RIGHT))
@@ -147,8 +120,7 @@ void TowerDefence::OnInputUpdate(float deltaTime, int mods)
 	}
 }
 
-void TowerDefence::OnKeyPress(int key, int mods)
-{
+void TowerDefence::OnKeyPress(int key, int mods) {
 	// add key press event
 	if (key == GLFW_KEY_T)
 	{
@@ -156,13 +128,11 @@ void TowerDefence::OnKeyPress(int key, int mods)
 	}
 }
 
-void TowerDefence::OnKeyRelease(int key, int mods)
-{
+void TowerDefence::OnKeyRelease(int key, int mods) {
 	// add key release event
 }
 
-void TowerDefence::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
-{
+void TowerDefence::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY) {
 	// de verificat vietile la player
 	if (window->MouseHold(GLFW_MOUSE_BUTTON_RIGHT))
 	{
@@ -179,20 +149,16 @@ void TowerDefence::OnMouseMove(int mouseX, int mouseY, int deltaX, int deltaY)
 	}
 }
 
-void TowerDefence::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods)
-{
+void TowerDefence::OnMouseBtnPress(int mouseX, int mouseY, int button, int mods) {
 	// add mouse button press event
 }
 
-void TowerDefence::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods)
-{
+void TowerDefence::OnMouseBtnRelease(int mouseX, int mouseY, int button, int mods) {
 	// add mouse button release event
 }
 
-void TowerDefence::OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY)
-{
+void TowerDefence::OnMouseScroll(int mouseX, int mouseY, int offsetX, int offsetY) {
 }
 
-void TowerDefence::OnWindowResize(int width, int height)
-{
+void TowerDefence::OnWindowResize(int width, int height) {
 }

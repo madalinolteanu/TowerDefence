@@ -23,13 +23,22 @@
       <UniqueIdentifier>{44b7c876-3820-440f-8629-b12c2fd9f534}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\GameObjects">
-      <UniqueIdentifier>{d8784dc8-0ef8-4c56-99c3-5501ea3c892f}</UniqueIdentifier>
+      <UniqueIdentifier>{adb11f51-0527-4253-b6fc-955795014dd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\GameObjects\Amo">
-      <UniqueIdentifier>{d641d60f-0147-421d-aa0b-be35f50c156e}</UniqueIdentifier>
+    <Filter Include="Resources\GameObjects\Ammo">
+      <UniqueIdentifier>{03e64d1a-e709-4a1a-ba39-c0e118832cbb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resources\GameObjects\Amo\Ammunition">
-      <UniqueIdentifier>{14cbc892-59f8-4cec-991c-6d6665ca8023}</UniqueIdentifier>
+    <Filter Include="Resources\GameObjects\Ammo\Ammunition">
+      <UniqueIdentifier>{661d12bd-bdf5-46bb-b348-6e7a53477274}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Collisions">
+      <UniqueIdentifier>{488a3984-5f30-4379-91dc-1e3e589a6329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\DrawObjects">
+      <UniqueIdentifier>{908bcd44-d4d2-47c1-8901-8c937fe0527d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\RenderObjects">
+      <UniqueIdentifier>{737f44d3-2304-4db8-a93a-717844fa6d32}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,20 +91,29 @@
     <ClCompile Include="..\Source\Resources\GameObjects\Character.cpp">
       <Filter>Resources\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Pistol.cpp">
-      <Filter>Resources\GameObjects\Amo</Filter>
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Launcher.cpp">
+      <Filter>Resources\GameObjects\Ammo</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Pusca.cpp">
-      <Filter>Resources\GameObjects\Amo</Filter>
+    <ClCompile Include="..\Source\Resources\DrawObjects\DrawEnemy.cpp">
+      <Filter>Resources\DrawObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Tun.cpp">
-      <Filter>Resources\GameObjects\Amo</Filter>
+    <ClCompile Include="..\Source\Resources\DrawObjects\DrawCharacter.cpp">
+      <Filter>Resources\DrawObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Ammunition\Bullet.cpp">
-      <Filter>Resources\GameObjects\Amo\Ammunition</Filter>
+    <ClCompile Include="..\Source\Resources\DrawObjects\DrawTower.cpp">
+      <Filter>Resources\DrawObjects</Filter>
     </ClCompile>
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Ammunition\Ghiulea.cpp">
-      <Filter>Resources\GameObjects\Amo\Ammunition</Filter>
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Pistol.cpp">
+      <Filter>Resources\GameObjects\Ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Gun.cpp">
+      <Filter>Resources\GameObjects\Ammo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Bullet.cpp">
+      <Filter>Resources\GameObjects\Ammo\Ammunition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Ghiulea.cpp">
+      <Filter>Resources\GameObjects\Ammo\Ammunition</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,20 +180,23 @@
     <ClInclude Include="..\Source\Resources\GameObjects\Character.h">
       <Filter>Resources\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Pistol.h">
-      <Filter>Resources\GameObjects\Amo</Filter>
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Launcher.h">
+      <Filter>Resources\GameObjects\Ammo</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Pusca.h">
-      <Filter>Resources\GameObjects\Amo</Filter>
+    <ClInclude Include="..\Source\Resources\DrawObjects\DrawObjects.h">
+      <Filter>Resources\DrawObjects</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Tun.h">
-      <Filter>Resources\GameObjects\Amo</Filter>
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Pistol.h">
+      <Filter>Resources\GameObjects\Ammo</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Ammunition\Bullet.h">
-      <Filter>Resources\GameObjects\Amo\Ammunition</Filter>
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Gun.h">
+      <Filter>Resources\GameObjects\Ammo</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Ammunition\Ghiulea.h">
-      <Filter>Resources\GameObjects\Amo\Ammunition</Filter>
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Bullet.h">
+      <Filter>Resources\GameObjects\Ammo\Ammunition</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Ghiulea.h">
+      <Filter>Resources\GameObjects\Ammo\Ammunition</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

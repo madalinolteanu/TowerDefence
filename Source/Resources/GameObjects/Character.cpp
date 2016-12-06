@@ -64,12 +64,12 @@ Pistol * Character::getPistol()
 	return pistol;
 }
 
-Tun * Character::getTun()
+Launcher * Character::getLauncher()
 {
-	return tun;
+	return launcher;
 }
 
-Pusca * Character::getPusca()
+Gun * Character::getGun()
 {
-	return pusca;
+	return gun;
 }

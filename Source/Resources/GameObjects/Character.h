@@ -1,7 +1,7 @@
 #pragma once
-#include <Resources\GameObjects\Amo\Pistol.h>
-#include <Resources\GameObjects\Amo\Tun.h>
-#include <Resources\GameObjects\Amo\Pusca.h>
+#include <Resources\GameObjects\Ammo\Pistol.h>
+#include <Resources\GameObjects\Ammo\Launcher.h>
+#include <Resources\GameObjects\Ammo\Gun.h>
 
 class Character
 {
@@ -22,8 +22,8 @@ public:
 	float getAngle();
 
 	Pistol* getPistol();
-	Tun* getTun();
-	Pusca* getPusca();
+	Launcher* getLauncher();
+	Gun* getGun();
 
 
 private:
@@ -33,8 +33,8 @@ private:
 	float angle;
 	int life;
 	Pistol* pistol;
-	Pusca* pusca;
-	Tun* tun;
+	Gun* gun;
+	Launcher* launcher;
 
 
 };

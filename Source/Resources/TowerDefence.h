@@ -2,8 +2,7 @@
 #include <Component/SimpleScene.h>
 #include "LabCamera.h"
 
-class TowerDefence : public SimpleScene
-{
+class TowerDefence : public SimpleScene {
 	public:
 		TowerDefence();
 		~TowerDefence();

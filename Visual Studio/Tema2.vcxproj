@@ -34,11 +34,14 @@
     <ClCompile Include="..\Source\Core\World.cpp" />
     <ClCompile Include="..\Source\include\gl.cpp" />
     <ClCompile Include="..\Source\Main.cpp" />
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Ammunition\Bullet.cpp" />
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Ammunition\Ghiulea.cpp" />
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Pistol.cpp" />
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Pusca.cpp" />
-    <ClCompile Include="..\Source\Resources\GameObjects\Amo\Tun.cpp" />
+    <ClCompile Include="..\Source\Resources\DrawObjects\DrawCharacter.cpp" />
+    <ClCompile Include="..\Source\Resources\DrawObjects\DrawEnemy.cpp" />
+    <ClCompile Include="..\Source\Resources\DrawObjects\DrawTower.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Launcher.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Bullet.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Ghiulea.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Pistol.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Ammo\Gun.cpp" />
     <ClCompile Include="..\Source\Resources\GameObjects\Character.cpp" />
     <ClCompile Include="..\Source\Resources\TowerDefence.cpp" />
   </ItemGroup>
@@ -61,11 +64,12 @@
     <ClInclude Include="..\Source\include\glm.h" />
     <ClInclude Include="..\Source\include\math.h" />
     <ClInclude Include="..\Source\include\utils.h" />
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Ammunition\Bullet.h" />
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Ammunition\Ghiulea.h" />
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Pistol.h" />
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Pusca.h" />
-    <ClInclude Include="..\Source\Resources\GameObjects\Amo\Tun.h" />
+    <ClInclude Include="..\Source\Resources\DrawObjects\DrawObjects.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Launcher.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Bullet.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Ammunition\Ghiulea.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Pistol.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Ammo\Gun.h" />
     <ClInclude Include="..\Source\Resources\GameObjects\Character.h" />
     <ClInclude Include="..\Source\Resources\LabCamera.h" />
     <ClInclude Include="..\Source\Resources\TowerDefence.h" />
