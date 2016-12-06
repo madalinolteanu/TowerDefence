@@ -30,4 +30,5 @@ class TowerDefence : public SimpleScene
 		Laborator::Camera *camera;
 		glm::mat4 projectionMatrix;
 		bool renderCameraTarget;
+		int a;
 };
