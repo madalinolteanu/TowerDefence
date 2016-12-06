@@ -22,6 +22,9 @@
     <Filter Include="Resources">
       <UniqueIdentifier>{44b7c876-3820-440f-8629-b12c2fd9f534}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resources\GameObjects">
+      <UniqueIdentifier>{adb11f51-0527-4253-b6fc-955795014dd1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\Core\Engine.cpp">
@@ -69,6 +72,12 @@
     </ClCompile>
     <ClCompile Include="..\Source\Resources\TowerDefence.cpp">
       <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Resources\GameObjects\Enemy.cpp">
+      <Filter>Resources\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Resources\GameObjects\Tower.cpp">
+      <Filter>Resources\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +140,12 @@
     </ClInclude>
     <ClInclude Include="..\Source\Resources\TowerDefence.h">
       <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Resources\GameObjects\Enemy.h">
+      <Filter>Resources\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Resources\GameObjects\Tower.h">
+      <Filter>Resources\GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -34,6 +34,8 @@
     <ClCompile Include="..\Source\Core\World.cpp" />
     <ClCompile Include="..\Source\include\gl.cpp" />
     <ClCompile Include="..\Source\Main.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Enemy.cpp" />
+    <ClCompile Include="..\Source\Resources\GameObjects\Tower.cpp" />
     <ClCompile Include="..\Source\Resources\TowerDefence.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +57,8 @@
     <ClInclude Include="..\Source\include\glm.h" />
     <ClInclude Include="..\Source\include\math.h" />
     <ClInclude Include="..\Source\include\utils.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Enemy.h" />
+    <ClInclude Include="..\Source\Resources\GameObjects\Tower.h" />
     <ClInclude Include="..\Source\Resources\LabCamera.h" />
     <ClInclude Include="..\Source\Resources\TowerDefence.h" />
   </ItemGroup>

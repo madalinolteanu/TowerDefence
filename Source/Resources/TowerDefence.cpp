@@ -21,11 +21,11 @@ void TowerDefence::Init()
 	renderCameraTarget = false;
 
 	camera = new Laborator::Camera();
-	camera->Set(glm::vec3(0, 0.3f, 5.0f), glm::vec3(0, 1, 0), glm::vec3(0, 1, 0));
+	camera->Set(glm::vec3(0, 3, 5.0f), glm::vec3(0, 1, 0), glm::vec3(0, 1, 0));
 	resolution = window->GetResolution();
 
 	miniMapCamera = new Laborator::Camera();
-	miniMapCamera->Set(glm::vec3(0, 15, 0), glm::vec3(0, 1, 0), glm::vec3(1, 0, 0));
+	miniMapCamera->Set(glm::vec3(0, 30, 0), glm::vec3(0, 1, 0), glm::vec3(1, 0, 0));
 
 
 	projectionMatrix = glm::perspective(RADIANS(60), window->props.aspectRatio, 0.01f, 200.0f);
